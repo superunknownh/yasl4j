@@ -217,6 +217,33 @@ public class Logger<T> {
     abort();
   }
 
+  /**
+   * Logs an exception with the format: {@code ex.getClass().getName():
+   * ex.getMessage()} in the {@link LogLevel.ERROR} log level. Also, if {@link
+   * LogLevel.DEBUG} level is set, will call {@code ex.printStackTrace();}
+   *
+   * @param submodule The submodule that called the log.
+   * @param ex The Exception to log.
+   */
+  public void exception(String submodule, Exception ex) {
+    error(submodule,
+          String.format("%s: %s", ex.getClass().getName(), ex.getMessage()));
+    if (logLevel == LogLevel.DEBUG) {
+      ex.printStackTrace();
+    }
+  }
+
+  /**
+   * Logs an exception with the format: {@code ex.getClass().getName():
+   * ex.getMessage()} in the {@link LogLevel.ERROR} log level. Also, if {@link
+   * LogLevel.DEBUG} level is set, will call {@code ex.printStackTrace();}
+   *
+   * @param ex The Exception to log.
+   */
+  public void exception(Exception ex) {
+    exception(new Throwable().getStackTrace()[1].getMethodName(), ex);
+  }
+
   private final String module;
   private LogLevel logLevel;
   private boolean rotateDaily;

@@ -73,4 +73,11 @@ public class LoggerTest {
     Logger<LoggerTest> logger = new Logger<>(LoggerTest.class);
     logger.fatal("testFatal", "This is a FATAL message.");
   }
+
+  @Test
+  public void testException() {
+    Logger<LoggerTest> logger = new Logger<>(LoggerTest.class);
+    logger.exception("testException",
+                     new Exception("This is a dummy exception"));
+  }
 }

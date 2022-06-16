@@ -1,4 +1,4 @@
-package mx.digitalbusiness.lib.yasl4j.utils;
+package com.github.superunknownh.yasl4j.utils;
 
 public final class StringUtils {
 

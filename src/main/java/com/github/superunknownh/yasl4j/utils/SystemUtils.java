@@ -1,4 +1,4 @@
-package mx.digitalbusiness.lib.yasl4j.utils;
+package com.github.superunknownh.yasl4j.utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

@@ -8,9 +8,9 @@ You can include this library adding this as a dependency in your `pom.xml`:
 
 ```xml
 <dependency>
-    <groupId>mx.digitalbusiness.lib</groupId>
+    <groupId>com.github.superunknownh.yasl4j</groupId>
     <artifactId>yasl4j</artifactId>
-    <version>1.0</version>
+    <version>2.0</version>
 </dependency>
 ```
 

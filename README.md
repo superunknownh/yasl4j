@@ -40,9 +40,9 @@ Logger<?> logger = new Logger<>(LoggerTest.class);
 // 2022-06-16 18:06:07.508 [DEBUG] [LoggerTest] codeBlock - This is a DEBUG message.
 logger.debug("codeBlock", "This is a DEBUG message.");
 // 2022-06-16 18:06:07.508 [DEBUG] [LoggerTest] main - This is a DEBUG message.
-logger.debug("This is a debug message");
+logger.debug("This is a DEBUG message");
 // 2022-06-16 18:06:07.508 [DEBUG] [LoggerTest] main - This is a DEBUG message with 1 arg!
-logger.debug("This is a debug message with %d arg!", 1);
+logger.debug("This is a DEBUG message with %d arg!", 1);
 
 // each call is available for debug, info, warn, error and fatal levels
 logger.info("This is an INFORMATIVE message.");

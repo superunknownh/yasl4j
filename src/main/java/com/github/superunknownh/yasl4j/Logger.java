@@ -169,33 +169,14 @@ public class Logger<T> {
   /**
    * Logs a debug message.
    *
-   * @param submodule The submodule (like method) where the log is raised.
-   * @param message   The message to log.
-   */
-  public void debug(String submodule, String message) {
-    log(LogLevel.DEBUG, this.module, submodule, message);
-  }
-
-  /**
-   * Logs a debug message.
-   *
    * @param format Format string or message.
    * @param args   Arguments referenced by the format specifiers in the format
    *         string (usage of %).
    */
   public void debug(String format, Object... args) {
-    debug(new Throwable().getStackTrace()[1].getMethodName(),
-          String.format(format, args));
-  }
-
-  /**
-   * Logs an informative message.
-   *
-   * @param submodule The submodule (like method) where the log is raised.
-   * @param message   The message to log.
-   */
-  public void info(String submodule, String message) {
-    log(LogLevel.INFO, this.module, submodule, message);
+    log(LogLevel.DEBUG, this.module,
+        new Throwable().getStackTrace()[1].getMethodName(),
+        String.format(format, args));
   }
 
   /**
@@ -206,18 +187,9 @@ public class Logger<T> {
    *         string (usage of %).
    */
   public void info(String format, Object... args) {
-    info(new Throwable().getStackTrace()[1].getMethodName(),
-         String.format(format, args));
-  }
-
-  /**
-   * Logs a warning message.
-   *
-   * @param submodule The submodule (like method) where the log is raised.
-   * @param message   The message to log.
-   */
-  public void warn(String submodule, String message) {
-    log(LogLevel.WARN, this.module, submodule, message);
+    log(LogLevel.DEBUG, this.module,
+        new Throwable().getStackTrace()[1].getMethodName(),
+        String.format(format, args));
   }
 
   /**
@@ -228,18 +200,9 @@ public class Logger<T> {
    *         string (usage of %).
    */
   public void warn(String format, Object... args) {
-    warn(new Throwable().getStackTrace()[1].getMethodName(),
-         String.format(format, args));
-  }
-
-  /**
-   * Logs an error message.
-   *
-   * @param submodule The submodule (like method) where the log is raised.
-   * @param message   The message to log.
-   */
-  public void error(String submodule, String message) {
-    log(LogLevel.ERROR, this.module, submodule, message);
+    log(LogLevel.DEBUG, this.module,
+        new Throwable().getStackTrace()[1].getMethodName(),
+        String.format(format, args));
   }
 
   /**
@@ -250,19 +213,9 @@ public class Logger<T> {
    *         string (usage of %).
    */
   public void error(String format, Object... args) {
-    error(new Throwable().getStackTrace()[1].getMethodName(),
-          String.format(format, args));
-  }
-
-  /**
-   * Logs a fatal message. Also ends the application.
-   *
-   * @param submodule The submodule (like method) where the log is raised.
-   * @param message   The message to log.
-   */
-  public void fatal(String submodule, String message) {
-    log(LogLevel.FATAL, this.module, submodule, message);
-    abort();
+    log(LogLevel.DEBUG, this.module,
+        new Throwable().getStackTrace()[1].getMethodName(),
+        String.format(format, args));
   }
 
   /**
@@ -273,8 +226,10 @@ public class Logger<T> {
    *         string (usage of %).
    */
   public void fatal(String format, Object... args) {
-    fatal(new Throwable().getStackTrace()[1].getMethodName(),
-          String.format(format, args));
+    log(LogLevel.DEBUG, this.module,
+        new Throwable().getStackTrace()[1].getMethodName(),
+        String.format(format, args));
+    abort();
   }
 
   /**

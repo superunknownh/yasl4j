@@ -10,7 +10,7 @@ You can include this library adding this as a dependency in your `pom.xml`:
 <dependency>
     <groupId>com.github.superunknownh.yasl4j</groupId>
     <artifactId>yasl4j</artifactId>
-    <version>2.2</version>
+    <version>3.0</version>
 </dependency>
 ```
 
@@ -37,8 +37,6 @@ Logger<?> logger = new Logger<>(LoggerTest.class);
 
 // you can choose which call is better for you:
 
-// 2022-06-16 18:06:07.508 [DEBUG] [LoggerTest] codeBlock - This is a DEBUG message.
-logger.debug("codeBlock", "This is a DEBUG message.");
 // 2022-06-16 18:06:07.508 [DEBUG] [LoggerTest] main - This is a DEBUG message.
 logger.debug("This is a DEBUG message");
 // 2022-06-16 18:06:07.508 [DEBUG] [LoggerTest] main - This is a DEBUG message with 1 arg!

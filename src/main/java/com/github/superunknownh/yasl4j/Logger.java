@@ -1,8 +1,8 @@
 package com.github.superunknownh.yasl4j;
 
-import static com.github.superunknownh.yasl4j.utils.Constants.*;
-import static com.github.superunknownh.yasl4j.utils.StringUtils.*;
-import static com.github.superunknownh.yasl4j.utils.SystemUtils.*;
+import static com.github.superunknownh.superutils.FileUtils.appendFile;
+import static com.github.superunknownh.superutils.StringUtils.getString;
+import static com.github.superunknownh.superutils.SystemUtils.getCurrentDateTime;
 
 import java.io.File;
 import java.io.IOException;
@@ -103,8 +103,8 @@ public class Logger<T> {
   private void handleEnvironmentVariables() {
     this.logLevel =
         LogLevel.valueOf(getString(System.getenv(LOG_LEVEL_ENV), "DEBUG"));
-    this.rotateDaily =
-        getBoolean(getString(System.getenv(LOG_ROTATE_DAILY_ENV), "false"));
+    this.rotateDaily = Boolean.valueOf(
+        getString(System.getenv(LOG_ROTATE_DAILY_ENV), "false"));
     String logDirectoryString = System.getenv(LOG_DIR_ENV);
     this.logDirectory =
         logDirectoryString != null ? new File(logDirectoryString) : null;
@@ -229,7 +229,7 @@ public class Logger<T> {
     log(LogLevel.DEBUG, this.module,
         new Throwable().getStackTrace()[1].getMethodName(),
         String.format(format, args));
-    abort();
+    System.exit(1);
   }
 
   /**
@@ -241,8 +241,9 @@ public class Logger<T> {
    * @param ex The Exception to log.
    */
   public void exception(String submodule, Exception ex) {
-    error(submodule,
-          String.format("%s: %s", ex.getClass().getName(), ex.getMessage()));
+    log(LogLevel.ERROR, this.module,
+        new Throwable().getStackTrace()[1].getMethodName(),
+        String.format("%s - %s: %s", submodule, ex.getClass().getName(), ex.getMessage()));
     if (logLevel == LogLevel.DEBUG) {
       ex.printStackTrace();
     }
@@ -256,7 +257,12 @@ public class Logger<T> {
    * @param ex The Exception to log.
    */
   public void exception(Exception ex) {
-    exception(new Throwable().getStackTrace()[1].getMethodName(), ex);
+    log(LogLevel.ERROR, this.module,
+        new Throwable().getStackTrace()[1].getMethodName(),
+        String.format("%s: %s", ex.getClass().getName(), ex.getMessage()));
+    if (logLevel == LogLevel.DEBUG) {
+      ex.printStackTrace();
+    }
   }
 
   private final String module;
@@ -268,6 +274,9 @@ public class Logger<T> {
   private static final String LOG_LEVEL_ENV = "YASL4J_LOG_LEVEL";
   private static final String LOG_ROTATE_DAILY_ENV = "YASL4J_LOG_ROTATE_DAILY";
   private static final String LOG_DIR_ENV = "YASL4J_LOG_DIR";
+
+  private static final String FILE_SEPARATOR =
+      System.getProperty("file.separator");
 
   private static final SimpleDateFormat DATE_FORMATTER =
       new SimpleDateFormat("yyyy-MM-dd");

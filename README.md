@@ -10,7 +10,7 @@ You can include this library adding this as a dependency in your `pom.xml`:
 <dependency>
     <groupId>com.github.superunknownh.yasl4j</groupId>
     <artifactId>yasl4j</artifactId>
-    <version>3.0</version>
+    <version>4.0</version>
 </dependency>
 ```
 

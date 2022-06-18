@@ -1,21 +1,35 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>com.github.superunknownh.yasl4j</groupId>
 	<artifactId>yasl4j</artifactId>
-	<version>3.0</version>
+	<version>4.0</version>
+
 	<name>Yet Another Simple Logger for Java (YASL4J)</name>
-	<packaging>jar</packaging>
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.13.1</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+	<url>https://github.com/superunknownh/yasl4j</url>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<!-- https://github.com/superunknownh/superutils -->
+		<dependency>
+			<groupId>com.github.superunknownh</groupId>
+			<artifactId>superutils</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
 </project>

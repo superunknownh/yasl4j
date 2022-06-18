@@ -46,38 +46,43 @@ public class LoggerTest {
   @Test
   public void testDebug() {
     Logger<LoggerTest> logger = new Logger<>(LoggerTest.class);
-    logger.debug("testDebug", "This is a DEBUG message.");
+    logger.debug("This is a DEBUG message.");
   }
 
   @Test
   public void testInfo() {
     Logger<LoggerTest> logger = new Logger<>(LoggerTest.class);
-    logger.info("testInfo", "This is an INFORMATIVE message.");
+    logger.info("This is an INFORMATIVE message.");
   }
 
   @Test
   public void testWarn() {
     Logger<LoggerTest> logger = new Logger<>(LoggerTest.class);
-    logger.warn("testWarn", "This is a WARNING message.");
+    logger.warn("This is a WARNING message.");
   }
 
   @Test
   public void testError() {
     Logger<LoggerTest> logger = new Logger<>(LoggerTest.class);
-    logger.error("testError", "This is an ERROR message.");
+    logger.error("This is an ERROR message.");
   }
 
   @Test
   @Ignore
   public void testFatal() {
     Logger<LoggerTest> logger = new Logger<>(LoggerTest.class);
-    logger.fatal("testFatal", "This is a FATAL message.");
+    logger.fatal("This is a FATAL message.");
+  }
+
+  @Test
+  public void testExceptionInSubmodule() {
+    Logger<LoggerTest> logger = new Logger<>(LoggerTest.class);
+    logger.exception("specificTryBlock", new Exception("This is a dummy exception"));
   }
 
   @Test
   public void testException() {
     Logger<LoggerTest> logger = new Logger<>(LoggerTest.class);
-    logger.exception("testException",
-                     new Exception("This is a dummy exception"));
+    logger.exception(new Exception("This is an specific dummy exception"));
   }
 }

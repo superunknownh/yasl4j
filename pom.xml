@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>com.github.superunknownh</groupId>
 			<artifactId>superutils</artifactId>
-			<version>1.2.0</version>
+			<version>1.4.1</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>

@@ -3,7 +3,7 @@
 
 	<groupId>com.github.superunknownh.yasl4j</groupId>
 	<artifactId>yasl4j</artifactId>
-	<version>4.0</version>
+	<version>4.0.1</version>
 
 	<name>Yet Another Simple Logger for Java (YASL4J)</name>
 	<url>https://github.com/superunknownh/yasl4j</url>

@@ -10,7 +10,7 @@ You can include this library adding this as a dependency in your `pom.xml`:
 <dependency>
     <groupId>com.github.superunknownh.yasl4j</groupId>
     <artifactId>yasl4j</artifactId>
-    <version>4.0</version>
+    <version>4.0.1</version>
 </dependency>
 ```
 
@@ -33,7 +33,7 @@ Once you have configured the environment variables, you can use the library like
 
 ```java
 // create a logger by passing the class name
-Logger<?> logger = new Logger<>(LoggerTest.class);
+final Logger<?> logger = new Logger<>(LoggerTest.class);
 
 // you can choose which call is better for you:
 

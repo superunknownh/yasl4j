@@ -213,7 +213,7 @@ public class Logger<T> {
    *         string (usage of %).
    */
   public void error(String format, Object... args) {
-    log(LogLevel.DEBUG, this.module,
+    log(LogLevel.ERROR, this.module,
         new Throwable().getStackTrace()[1].getMethodName(),
         String.format(format, args));
   }
